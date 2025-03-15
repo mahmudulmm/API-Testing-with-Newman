@@ -13,6 +13,7 @@ Test scripts for assertions and validations
 API Documentation:
 
 https://documenter.getpostman.com/view/40864140/2sAYdcrXnp
+
 Technology used:
 Postman
 Newman
@@ -29,7 +30,7 @@ Installation
 
 
 Postman: If you haven't already, download and install Postman.
-Clone the repository:
+Clone the repository: https://github.com/mahmudulmm/API-Testing-with-Newman.git
 
 
 Import the Postman collection:
@@ -40,10 +41,6 @@ Select the file from the repository.
 Import the Postman environment:
 In Postman, click on the gear icon in the top right corner.
 Select Import and choose the file.
-
-
-
-
 
 
 Newman and Report Installation Process:
