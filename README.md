@@ -14,13 +14,17 @@ Pre-request scripts for data setup
 
 Test scripts for assertions and validations
 
+
+
 API Documentation:
 
 https://documenter.getpostman.com/view/40864140/2sAYdcrXnp
 
+
 Technology used:
 Postman
 Newman
+
 
 Prerequisite:
 
@@ -32,68 +36,95 @@ Newman Html Report Library
 
 Installation
 
-
 Postman: If you haven't already, download and install Postman.
 Clone the repository: https://github.com/mahmudulmm/API-Testing-with-Newman.git
 
 
 Import the Postman collection:
+
 Open Postman.
+
 Click on the Import button.
+
 Select the file from the repository.
 
+
+
 Import the Postman environment:
+
 In Postman, click on the gear icon in the top right corner.
+
 Select Import and choose the file.
 
 
 Newman and Report Installation Process:
 
-Newman Install Command:
-npm install -g newman
+Newman Install Command: npm install -g newman
 
 
-Newman Html Report Install Command:
- npm install -g newman-reporter-htmlextra
+Newman Html Report Install Command: npm install -g newman-reporter-htmlextra
 
 
 Usage
+
 Select Environment:
 In Postman, select the appropriate environment (e.g., Development, Production) from the top-right dropdown.
 
 Run Collection:
+
 Select the imported collection from the Collections sidebar.
+
 Click on the Runner button to open the collection runner.
+
 Select the desired environment.
+
 Click Start Test to run the collection.
 
+
 View Results:
+
 Once the tests are complete, view the results in the Runner tab.
+
 Detailed test results can be viewed for each request.
 
 
 Testing
+
 Test Case Scenarios:
 
 1. Create New Booking
+   
 Request URL: https://restful-booker.herokuapp.com/booking/
+
 Request Method: POST
+
 Pre-request Script:
 
     var firstName = pm.variables.replaceIn("{{$randomFirstName}}")
+    
     pm.environment.set("firstName", firstName)
+    
     console.log("First Name Value "+firstName)
     
+    
     var lastName = pm.variables.replaceIn("{{$randomLastName}}")
+    
     pm.environment.set("lastName", lastName)
+    
     console.log("Last Name Value "+lastName)
+
     
     var totalPrice = pm.variables.replaceIn("{{$randomInt}}")
+    
     pm.environment.set("totalPrice", totalPrice)
+    
     console.log(totalPrice)
+
     
     var depositPaid = pm.variables.replaceIn("{{$randomBoolean}}")
+    
     pm.environment.set("depositPaid", depositPaid)
+    
     console.log(depositPaid)
     
     //Date
@@ -116,38 +147,53 @@ Request Body:
 
  {
      "firstname" : "{{firstName}}",
+     
      "lastname" : "{{lastName}}",
+     
      "totalprice" : {{totalPrice}},
+     
      "depositpaid" : {{depositPaid}},
+     
      "bookingdates" : {
    	  "checkin" : "{{checkin}}",
    	  "checkout" : "{{checkout}}"
      },
+     
      "additionalneeds" : "{{additionalNeeds}}"
  }
+
 
 
 Response Body:
 
  {
      "bookingid": 4334,
+     
      "booking": {
+     
          "firstname": "Joelle",
+         
          "lastname": "Krajcik",
+         
          "totalprice": 266,
+         
          "depositpaid": true,
+         
          "bookingdates": {
              "checkin": "2024-03-15",
              "checkout": "2024-03-20"
          },
+         
          "additionalneeds": "monitor"
      }
  }
 
 
+
 2. Get Booking Details By ID
 
 Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+
 Request Method: GET
 
 
@@ -169,7 +215,9 @@ Response Body:
 3. Create A Token For Authentication.
 
 Request URL: https://restful-booker.herokuapp.com/auth
+
 Request Method: POST
+
 Pre-request Script: None
 
 
@@ -192,7 +240,9 @@ Response Body:
 
 
 4. Update the Booking Details
+5. 
 Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+
 Request Method: PUT
 
 
@@ -260,7 +310,9 @@ Response Body:
 5. Delete Booking Record
 
 Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+
 Request Method: DELETE
+
 Response Body: None
 
 Run Command:
