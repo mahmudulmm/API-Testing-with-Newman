@@ -25,7 +25,7 @@ This project demonstrates API testing using Postman, providing a collection of t
 
 ## Installation
 
-**Postman:** If you haven't already, download and install Postman.
+**Postman:** If you haven't already, download and install Postman.  
 **Clone the repository:** https://github.com/mahmudulmm/API-Testing-with-Newman.git
 
 ## Import the Postman collection:
@@ -41,7 +41,7 @@ This project demonstrates API testing using Postman, providing a collection of t
 
 ## Newman and Report Installation Process:
 
-**Newman Install Command:** npm install -g newman
+**Newman Install Command:** npm install -g newman  
 **Newman Html Report Install Command:** npm install -g newman-reporter-htmlextra
 
 ## Usage
@@ -62,9 +62,8 @@ This project demonstrates API testing using Postman, providing a collection of t
 
 ### 1. Create New Booking
    
-**Request URL:** https://restful-booker.herokuapp.com/booking/
-**Request Method:** POST
-
+**Request URL:** https://restful-booker.herokuapp.com/booking/  
+**Request Method:** POST  
 **Pre-request Script:**
 
     var firstName = pm.variables.replaceIn("{{$randomFirstName}}")
@@ -154,29 +153,28 @@ This project demonstrates API testing using Postman, providing a collection of t
 
 ### 2. Get Booking Details By ID
 
-**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid
-**Request Method:** GET
-
+**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid  
+**Request Method:** GET  
 **Response Body:**
 
 {
-   "firstname": "D'angelo",
-   "lastname": "Feeney",
-   "totalprice": 757,
-   "depositpaid": true,
-   "bookingdates": {
-       "checkin": "2024-03-15",
-       "checkout": "2024-03-20"
-   },
-   "additionalneeds": "hard drive"
-}
+   "firstname": "D'angelo",  
+   "lastname": "Feeney",  
+   "totalprice": 757,  
+   "depositpaid": true,  
+   "bookingdates": {  
+       "checkin": "2024-03-15",  
+       "checkout": "2024-03-20"  
+   },  
+   "additionalneeds": "hard drive"  
+}  
 
 
 ### 3. Create A Token For Authentication.
 
-**Request URL:** https://restful-booker.herokuapp.com/auth
-**Request Method:** POST
-**Pre-request Script:** None
+**Request URL:** https://restful-booker.herokuapp.com/auth  
+**Request Method:** POST    
+**Pre-request Script:** None 
 
 **Request Body:**
 
@@ -193,8 +191,8 @@ This project demonstrates API testing using Postman, providing a collection of t
 
 ### 4. Update the Booking Details
  
-**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid
-**Request Method:** PUT
+**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid  
+**Request Method:** PUT  
 **Pre-request Script:**
 
     var firstName = pm.variables.replaceIn("{{$randomFirstName}}")
@@ -226,45 +224,45 @@ This project demonstrates API testing using Postman, providing a collection of t
 **Request Body:**
 
  {
-     "firstname" : "{{firstName}}",
-     "lastname" : "{{lastName}}",
-     "totalprice" : {{totalPrice}},
-     "depositpaid" : {{depositPaid}},
-     "bookingdates" : {
-   	  "checkin" : "{{checkin}}",
-   	  "checkout" : "{{checkout}}"
-     },
-     "additionalneeds" : "{{additionalNeeds}}"
+     "firstname" : "{{firstName}}",  
+     "lastname" : "{{lastName}}",  
+     "totalprice" : {{totalPrice}},  
+     "depositpaid" : {{depositPaid}},  
+     "bookingdates" : {  
+   	  "checkin" : "{{checkin}}",  
+   	  "checkout" : "{{checkout}}"  
+     },  
+     "additionalneeds" : "{{additionalNeeds}}"  
  }
 
 
 **Response Body:**
 
  {
-     "bookingid": 4334,
-     "booking": {
-         "firstname": "Joelle",
-         "lastname": "Krajcik",
-         "totalprice": 266,
-         "depositpaid": true,
-         "bookingdates": {
-             "checkin": "2024-03-15",
-             "checkout": "2024-03-20"
-         },
-         "additionalneeds": "monitor"
-     }
- }
+     "bookingid": 4334,  
+     "booking": {  
+         "firstname": "Joelle",  
+         "lastname": "Krajcik",  
+         "totalprice": 266,  
+         "depositpaid": true,  
+         "bookingdates": {  
+             "checkin": "2024-03-15",  
+             "checkout": "2024-03-20"   
+         },  
+         "additionalneeds": "monitor"  
+     }  
+ }  
 
 
 ### 5. Delete Booking Record
 
-**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid
-**Request Method:** DELETE
-**Response Body:** None
+**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid  
+**Request Method:** DELETE  
+**Response Body:** None  
 
 ### Run Command:
 
-**Run Command for Console:** newman run  Login.postman_collection.json -e Login.postman_environment.json 
+**Run Command for Console:** newman run  Login.postman_collection.json -e Login.postman_environment.json   
 
 **Run Command for Report:**
 
