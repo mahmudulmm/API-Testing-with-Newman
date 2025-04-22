@@ -1,95 +1,71 @@
-#Rest Booking API Testing with Postman Newman
+# Rest Booking API Testing with Postman Newman
 This project demonstrates API testing using Postman, providing a collection of tests to validate various endpoints of the API.
-Features:
-•	Tests for GET, POST, PATCH, PUT, DELETE requests
-•	Collection of tests covering different API endpoints
-•	Environment setup for easy switching between environments
-•	Pre-request scripts for data setup
-•	Test scripts for assertions and validations
 
-API Documentation:
+## Features:
 
-https://documenter.getpostman.com/view/40864140/2sAYdcrXnp
+- Tests for **GET**, **POST**,**PATCH**, **PUT**, **DELETE** requests
+- Collection of tests covering different API endpoints
+- Environment setup for easy switching between environments
+- Pre-request scripts for data setup
+- Test scripts for assertions and validations
 
+## API Documentation:
 
-Technology used:
-Postman
-Newman
+- https://documenter.getpostman.com/view/40864140/2sAYdcrXnp
 
+## Technology used:
+- Postman
+- Newman
 
-Prerequisite:
+## Prerequisite:
 
-Node Js
-Newman
-Newman Html Report Library
+- Node Js
+- Newman
+- Newman Html Report Library
 
+## Installation
 
+**Postman:** If you haven't already, download and install Postman.
+**Clone the repository:** https://github.com/mahmudulmm/API-Testing-with-Newman.git
 
-Installation
+## Import the Postman collection:
 
-Postman: If you haven't already, download and install Postman.
-Clone the repository: https://github.com/mahmudulmm/API-Testing-with-Newman.git
+- Open Postman.
+- Click on the Import button.
+- Select the file from the repository.
 
+## Import the Postman environment:
 
-Import the Postman collection:
+- In Postman, click on the gear icon in the top right corner.
+- Select Import and choose the file.
 
-Open Postman.
+## Newman and Report Installation Process:
 
-Click on the Import button.
+**Newman Install Command:** npm install -g newman
+**Newman Html Report Install Command:** npm install -g newman-reporter-htmlextra
 
-Select the file from the repository.
+## Usage
 
+- **Select Environment:** In Postman, select the appropriate environment (e.g., Development, Production) from the top-right dropdown.
+- **Run Collection:** Select the imported collection from the Collections sidebar.
+- Click on the Runner button to open the collection runner.
+- Select the desired environment.
+- Click Start Test to run the collection.
 
+## View Results:
 
-Import the Postman environment:
+- Once the tests are complete, view the results in the Runner tab.
+- Detailed test results can be viewed for each request.
+- Testing
 
-In Postman, click on the gear icon in the top right corner.
+## Test Case Scenarios:
 
-Select Import and choose the file.
-
-
-Newman and Report Installation Process:
-
-Newman Install Command: npm install -g newman
-
-
-Newman Html Report Install Command: npm install -g newman-reporter-htmlextra
-
-
-Usage
-
-Select Environment:
-In Postman, select the appropriate environment (e.g., Development, Production) from the top-right dropdown.
-
-Run Collection:
-
-Select the imported collection from the Collections sidebar.
-
-Click on the Runner button to open the collection runner.
-
-Select the desired environment.
-
-Click Start Test to run the collection.
-
-
-View Results:
-
-Once the tests are complete, view the results in the Runner tab.
-
-Detailed test results can be viewed for each request.
-
-
-Testing
-
-Test Case Scenarios:
-
-1. Create New Booking
+### 1. Create New Booking
    
-Request URL: https://restful-booker.herokuapp.com/booking/
+**Request URL:** https://restful-booker.herokuapp.com/booking/
+**Request Method:** POST
 
-Request Method: POST
-
-Pre-request Script:
+**Pre-request Script:**
 
     var firstName = pm.variables.replaceIn("{{$randomFirstName}}")
     
@@ -129,12 +105,7 @@ Pre-request Script:
 
 
 
-
-
-
-
-
-Request Body:
+**Request Body:**
 
  {
      "firstname" : "{{firstName}}",
@@ -155,7 +126,7 @@ Request Body:
 
 
 
-Response Body:
+**Response Body:**
 
  {
      "bookingid": 4334,
@@ -181,14 +152,12 @@ Response Body:
 
 
 
-2. Get Booking Details By ID
+### 2. Get Booking Details By ID
 
-Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid
+**Request Method:** GET
 
-Request Method: GET
-
-
-Response Body:
+**Response Body:**
 
 {
    "firstname": "D'angelo",
@@ -203,41 +172,30 @@ Response Body:
 }
 
 
-3. Create A Token For Authentication.
+### 3. Create A Token For Authentication.
 
-Request URL: https://restful-booker.herokuapp.com/auth
+**Request URL:** https://restful-booker.herokuapp.com/auth
+**Request Method:** POST
+**Pre-request Script:** None
 
-Request Method: POST
-
-Pre-request Script: None
-
-
-Request Body:
+**Request Body:**
 
 {
    "username": "admin",
    "password": "password123"
 }
 
-Response Body:
+**Response Body:**
 
 {
    "token": "06eb798bf6f2caa"
 }
 
-
-
-
-
-
-4. Update the Booking Details
-5. 
-Request URL: https://restful-booker.herokuapp.com/booking/bookingid
-
-Request Method: PUT
-
-
-Pre-request Script:
+### 4. Update the Booking Details
+ 
+**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid
+**Request Method:** PUT
+**Pre-request Script:**
 
     var firstName = pm.variables.replaceIn("{{$randomFirstName}}")
     pm.environment.set("firstName", firstName)
@@ -265,7 +223,7 @@ Pre-request Script:
     pm.environment.set("additionalNeeds", additionalNeeds)
 
 
-Request Body:
+**Request Body:**
 
  {
      "firstname" : "{{firstName}}",
@@ -280,7 +238,7 @@ Request Body:
  }
 
 
-Response Body:
+**Response Body:**
 
  {
      "bookingid": 4334,
@@ -298,26 +256,19 @@ Response Body:
  }
 
 
-5. Delete Booking Record
+### 5. Delete Booking Record
 
-Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+**Request URL:** https://restful-booker.herokuapp.com/booking/bookingid
+**Request Method:** DELETE
+**Response Body:** None
 
-Request Method: DELETE
+### Run Command:
 
-Response Body: None
+**Run Command for Console:** newman run  Login.postman_collection.json -e Login.postman_environment.json 
 
-Run Command:
+**Run Command for Report:**
 
-Run Command for Console:
-newman run  Login.postman_collection.json -e Login.postman_environment.json 
-
-
-
-Run Command for Report:
-
-
-simple report:-  newman run Login.postman_collection.json -e Login.postman_environment.json -r html
-
-Details Report:- newman run Login.postman_collection.json -e Login.postman_environment.json -r htmlextra
+- **simple report:**  newman run Login.postman_collection.json -e Login.postman_environment.json -r html
+- **Details Report:** newman run Login.postman_collection.json -e Login.postman_environment.json -r htmlextra
 
 
